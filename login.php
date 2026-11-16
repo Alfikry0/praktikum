@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'koneksi.php';
+require_once 'config/koneksi.php';
 
 // Proteksi 1: Jika sudah login, lempar langsung ke halaman utama
 if (isset($_SESSION['id_user'])) {
@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = md5($_POST['password']); // Hashing password dengan algoritma MD5
 
     // Gunakan Prepared Statement untuk mencegah SQL Injection
-    $stmt = $conn->prepare("SELECT id_user, nama, password, role FROM user WHERE username = ?");
+    $stmt = $con->prepare("SELECT id_user, nama, password, role FROM user WHERE username = ?");
     $stmt->bind_param("s", $username);
     $stmt->execute();
     $result = $stmt->get_result();
