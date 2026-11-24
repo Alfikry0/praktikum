@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'config/koneksi.php';
+require_once 'config/database.php';
 
 // Proteksi Halaman: Pengunjung wajib memiliki sesi login
 if (!isset($_SESSION['id_user'])) {

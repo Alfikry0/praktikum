@@ -1,4 +1,10 @@
--- Jalankan di phpMyAdmin pada database: db_login
+-- ============================================================
+-- DATABASE APLIKASI PENJUALAN (sesuai PDF Modul 02-03, Langkah 0.1)
+-- Cara pakai: phpMyAdmin -> tab "SQL" -> paste semua -> klik Go
+-- ============================================================
+CREATE DATABASE IF NOT EXISTS aplikasi_penjualan;
+USE aplikasi_penjualan;
+
 CREATE TABLE IF NOT EXISTS user (
  id_user INT(11) AUTO_INCREMENT PRIMARY KEY,
  nama VARCHAR(100) NOT NULL,
@@ -7,6 +13,6 @@ CREATE TABLE IF NOT EXISTS user (
  role ENUM('Admin','Kasir') NOT NULL
 );
 
--- Masukkan data admin untuk pengujian (password: admin123 di-hash dengan MD5)
+-- Data admin untuk pengujian (password: admin123 di-hash dengan MD5)
 INSERT INTO user (nama, username, password, role)
 VALUES ('Administrator Sistem', 'admin', MD5('admin123'), 'Admin');
